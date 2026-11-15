@@ -1,21 +1,21 @@
 import BrandMark from "./BrandMark";
 import Button from "./Button";
+import { bookingHref } from "@/lib/site";
 
 const NAV_ITEMS = [
-  { label: "Pulse", href: "#pulse" },
-  { label: "Approach", href: "#approach" },
-  { label: "Work", href: "#numbers" },
+  { label: "Who we help", href: "#who" },
+  { label: "How we work", href: "#how" },
+  { label: "Offers", href: "#offers" },
+  { label: "Marketing", href: "#marketing" },
   { label: "About", href: "#about" },
-  { label: "Journal", href: "#journal" },
 ];
 
 export default function Nav() {
   return (
     <header className="nav">
-      <a href="#" className="nav-brand" aria-label="Levedge AI — home">
+      <a href="#" className="nav-brand" aria-label="Levedge — home">
         <BrandMark size={22} />
         <span className="nav-brand-name">Levedge</span>
-        <span className="nav-brand-tag">AI</span>
       </a>
       <nav className="nav-links">
         {NAV_ITEMS.map((item) => (
@@ -24,7 +24,7 @@ export default function Nav() {
           </a>
         ))}
       </nav>
-      <Button href="#contact" variant="outline-dark" size="sm" arrow>
+      <Button href={bookingHref} variant="outline-dark" size="sm" arrow>
         Book a call
       </Button>
     </header>

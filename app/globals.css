@@ -18,7 +18,7 @@
   --card: #ffffff;
   --ink: #0a0b0d;
   --ink-soft: #3e4452;
-  --ink-quiet: #6a7180;
+  --ink-quiet: #5a6170;
   --hairline: rgba(10, 11, 13, 0.1);
   --hairline-hi: rgba(10, 11, 13, 0.16);
 
@@ -272,7 +272,7 @@ a {
 .hero-title {
   font-family: var(--display);
   font-weight: 500;
-  font-size: clamp(96px, 11vw, 176px);
+  font-size: clamp(72px, 8.4vw, 140px);
   line-height: 0.92;
   letter-spacing: -0.05em;
   margin: 0;
@@ -401,7 +401,9 @@ a {
 }
 .stat-caption {
   font-family: var(--ui);
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 220px;
   color: var(--ink-soft);
   margin-top: 16px;
 }
@@ -465,123 +467,380 @@ a {
 }
 .approach-col p {
   font-family: var(--ui);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--ink-soft);
   margin: 0;
 }
 
-/* Pulse callout */
-.pulse-callout {
-  padding: 120px 64px;
-  border-bottom: 1px solid var(--hairline);
-  background: var(--tonal);
-  overflow: hidden;
+
+/* Hero proof line */
+.hero-proof {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--dark-soft);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
 }
-.pulse-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-.pulse-callout h2 {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 56px;
-  line-height: 1.04;
-  letter-spacing: -0.035em;
-  margin: 32px 0 0;
-  color: var(--ink);
-}
-.pulse-callout .pulse-body {
-  font-family: var(--ui);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin: 24px 0 0;
-  max-width: 480px;
-}
-.pulse-ctas {
-  display: flex;
-  gap: 10px;
-  margin-top: 32px;
+.hero-proof span {
+  color: var(--signal);
+  margin: 0 6px;
 }
 
-/* Hatched placeholder — real Pulse screenshot to come */
-.placeholder {
-  position: relative;
-  width: 100%;
-  height: 360px;
-  background: var(--tonal);
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(10, 11, 13, 0.06) 0 1px,
-    transparent 1px 14px
-  );
-  border: 1px solid var(--hairline);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 4px;
+.numbers-note {
+  margin: 40px 0 0;
+  font-family: var(--ui);
+  font-size: 13px;
+  color: var(--ink-quiet);
+  max-width: 640px;
 }
-.placeholder-label {
+
+/* Who we help */
+.who {
+  padding: 120px 64px;
+  border-bottom: 1px solid var(--hairline);
+}
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+.who-card {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 40px;
+}
+.who-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal-deep);
+}
+.who-card h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 20px 0 32px;
+  color: var(--ink);
+}
+.who-engines {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--hairline);
+}
+.engine {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.engine:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.engine-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.engine-name {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.engine-line {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-quiet);
 }
-.placeholder-sublabel {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: #9aa0ab;
+.engine p {
+  margin: 10px 0 0;
+  font-family: var(--ui);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
 }
 
-/* Journal */
-.journal {
+/* Offers */
+.offers {
   padding: 120px 64px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--tonal);
 }
-.journal-grid {
+.offers-intro {
+  margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 56px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: end;
 }
-.journal-card {
-  display: block;
-  background: var(--card);
-  border: 1px solid var(--hairline);
-  border-radius: 8px;
-  padding: 24px;
-}
-.journal-date {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--ink-quiet);
-  margin-bottom: 24px;
-}
-.journal-card h4 {
+.offers-intro h2,
+.about-body h2,
+.contact h2 {
   font-family: var(--display);
-  font-size: 22px;
   font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: 56px;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   margin: 0;
   color: var(--ink);
 }
-.journal-read {
-  margin-top: 24px;
+.offers-intro p {
+  font-family: var(--ui);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+.offer {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  padding: 32px;
+}
+.offer--featured {
+  background: var(--dark-page);
+  border-color: var(--dark-page);
+  color: var(--dark-ink);
+}
+.offer-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+.offer--featured .offer-name {
+  color: var(--signal);
+}
+.offer-price {
+  margin-top: 28px;
+  font-family: var(--display);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.offer-unit {
+  margin-top: 4px;
   font-family: var(--ui);
   font-size: 13px;
-  color: var(--ink-soft);
-  transition: color var(--dur-fast) var(--ease-out);
+  color: var(--ink-quiet);
 }
-.journal-card:hover .journal-read {
+.offer--featured .offer-unit,
+.offer.offer--featured p {
+  color: var(--dark-soft);
+}
+.offer p {
+  margin: 24px 0 0;
+  font-family: var(--ui);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.offers-cta {
+  margin-top: 40px;
+}
+
+/* About */
+.about {
+  padding: 120px 64px;
+  border-bottom: 1px solid var(--hairline);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+  margin-top: 56px;
+  align-items: start;
+}
+.about-photo {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--dark-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-initial {
+  font-family: var(--display);
+  font-size: 120px;
+  font-weight: 500;
+  color: var(--signal);
+  letter-spacing: -0.05em;
+}
+.about-body p {
+  font-family: var(--ui);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 24px 0 0;
+  max-width: 680px;
+}
+.about-body .about-sign {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin-top: 32px;
+}
+
+/* Levedge Marketing — warmer sub-brand band */
+.marketing {
+  padding: 120px 64px;
+  background: #1a1410;
+  color: #f3ece4;
+  background-image: radial-gradient(ellipse at 85% 0%, rgba(255, 140, 90, 0.18), transparent 60%);
+}
+.marketing-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.marketing-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff9a6b;
+}
+.marketing h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 24px 0 0;
+}
+.marketing-body {
+  font-family: var(--ui);
+  font-size: 17px;
+  line-height: 1.6;
+  color: #c9bdb1;
+  margin: 24px 0 0;
+  max-width: 480px;
+}
+.marketing-ctas {
+  margin-top: 32px;
+}
+.marketing-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.marketing-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.marketing-item-name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.marketing-item-body {
+  font-family: var(--ui);
+  font-size: 15px;
+  color: #c9bdb1;
+}
+
+/* Pulse strip */
+.pulse-strip {
+  padding: 40px 64px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--tonal);
+}
+.pulse-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.pulse-strip-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  white-space: nowrap;
+}
+.pulse-strip p {
+  flex: 1;
+  margin: 0;
+  font-family: var(--ui);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.pulse-strip strong {
   color: var(--ink);
+  font-weight: 600;
+}
+
+/* Contact */
+.contact {
+  padding: 120px 64px 140px;
+}
+.contact-inner {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.contact h2 {
+  font-size: 72px;
+}
+.contact h2 em {
+  font-style: normal;
+  color: var(--signal-deep);
+}
+.contact-inner > p {
+  font-family: var(--ui);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 560px;
+}
+.contact-inner .contact-pending {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.footer-legal {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dark-quiet);
 }
 
 /* ---------- Footer ---------- */
@@ -650,8 +909,18 @@ a {
   }
   .approach-intro,
   .approach-cols,
-  .pulse-grid {
+  .who-grid,
+  .offers-intro,
+  .offers-grid,
+  .about-grid,
+  .marketing-grid {
     grid-template-columns: 1fr;
+  }
+  .offers-intro {
+    gap: 24px;
+  }
+  .about-photo {
+    max-width: 240px;
   }
   .approach-intro {
     gap: 24px;
@@ -661,9 +930,6 @@ a {
     border-top: 1px solid var(--hairline);
     padding-left: 0;
     margin-top: 40px;
-  }
-  .journal-grid {
-    grid-template-columns: 1fr;
   }
   .footer {
     grid-template-columns: 1fr 1fr;
@@ -681,7 +947,7 @@ a {
     padding: 40px 24px;
   }
   .hero-title {
-    font-size: clamp(56px, 15vw, 96px);
+    font-size: clamp(44px, 12.5vw, 80px);
   }
   .hero-sub {
     font-size: 16px;
@@ -691,17 +957,45 @@ a {
     align-items: center;
   }
   .numbers,
+  .who,
   .approach,
-  .pulse-callout,
-  .journal {
+  .offers,
+  .about,
+  .marketing,
+  .pulse-strip,
+  .contact {
     padding-left: 24px;
     padding-right: 24px;
   }
+  .who,
   .approach,
-  .pulse-callout,
-  .journal {
+  .offers,
+  .about,
+  .marketing,
+  .contact {
     padding-top: 80px;
     padding-bottom: 80px;
+  }
+  .who-card {
+    padding: 28px;
+  }
+  .offers-intro h2,
+  .about-body h2,
+  .approach-intro h2,
+  .marketing h2 {
+    font-size: 40px;
+  }
+  .contact h2 {
+    font-size: 48px;
+  }
+  .hero-proof {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .pulse-strip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
   .numbers-grid {
     grid-template-columns: 1fr;

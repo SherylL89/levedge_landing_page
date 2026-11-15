@@ -1,5 +1,6 @@
 import Button from "./Button";
 import GravityGrid from "./GravityGrid";
+import { bookingHref } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -10,27 +11,31 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-eyebrow">
           <span className="pulse-dot" />
-          <span>AI Consulting · Est. 2024</span>
+          <span>AI-native growth &amp; operations</span>
         </div>
 
         <div className="hero-stack reveal">
           <h1 className="hero-title">
-            We give companies
+            Leverage AI
             <br />
-            an <em>edge</em>.
+            to create an <em>edge</em>.
           </h1>
           <p className="hero-sub">
-            AI consulting that ships in 90 days. Operational models, in production, measured
-            against your existing P&amp;L.
+            We embed with founders and growing teams to build AI-native engines for growth
+            and operations, and stay until they run.
           </p>
           <div className="hero-ctas">
-            <Button href="#contact" variant="primary" size="lg" arrow>
-              Book a scoping call
+            <Button href={bookingHref} variant="primary" size="lg" arrow>
+              Book an intro call
             </Button>
-            <Button href="#approach" variant="outline-dark" size="lg">
-              Read the approach
+            <Button href="#how" variant="outline-dark" size="lg">
+              See how we work
             </Button>
           </div>
+          <p className="hero-proof">
+            Ex-$10M/yr B2B sales lead <span>·</span> 3x retail brand growth <span>·</span> 20M+
+            impression creator campaigns
+          </p>
         </div>
 
         <div className="hero-foot" />

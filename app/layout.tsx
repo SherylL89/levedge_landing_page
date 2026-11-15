@@ -20,9 +20,9 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Levedge AI — We give companies an edge",
+  title: "Levedge — Leverage AI to create an edge",
   description:
-    "AI consulting that ships in 90 days. Operational models, in production, measured against your existing P&L.",
+    "Levedge embeds with founders and growing teams to build AI-native engines for growth and operations: founder-led sales, AI SDRs, CRM and pipeline systems, and human-AI workflows.",
 };
 
 export default function RootLayout({
