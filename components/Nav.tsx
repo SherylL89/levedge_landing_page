@@ -5,9 +5,9 @@ import { bookingHref } from "@/lib/site";
 const NAV_ITEMS = [
   { label: "Who we help", href: "#who" },
   { label: "How we work", href: "#how" },
+  { label: "Why Levedge", href: "#why" },
   { label: "Offers", href: "#offers" },
-  { label: "Marketing", href: "#marketing" },
-  { label: "About", href: "#about" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Nav() {

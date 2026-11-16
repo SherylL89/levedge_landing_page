@@ -1,4 +1,5 @@
 import BrandMark from "./BrandMark";
+import { marketingHref } from "@/lib/site";
 
 const COLUMNS = [
   {
@@ -6,13 +7,15 @@ const COLUMNS = [
     links: [
       { label: "Who we help", href: "#who" },
       { label: "How we work", href: "#how" },
+      { label: "Why Levedge", href: "#why" },
       { label: "Offers", href: "#offers" },
+      { label: "FAQ", href: "#faq" },
     ],
   },
   {
     header: "More",
     links: [
-      { label: "Levedge Marketing", href: "#marketing" },
+      { label: "Levedge Marketing", href: marketingHref },
       { label: "Pulse", href: "#pulse" },
     ],
   },

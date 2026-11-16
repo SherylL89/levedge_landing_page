@@ -20,10 +20,15 @@ export default function Hero() {
             <br />
             to create an <em>edge</em>.
           </h1>
-          <p className="hero-sub">
-            We embed with founders and growing teams to build AI-native engines for growth
-            and operations, and stay until they run.
-          </p>
+          <div className="hero-copy">
+            <p className="hero-lede">
+              Everyone has the same models. The edge is in how you use them.
+            </p>
+            <p className="hero-sub">
+              We embed with founders and growing teams to build AI-native engines for growth
+              and operations, and stay until they run.
+            </p>
+          </div>
           <div className="hero-ctas">
             <Button href={bookingHref} variant="primary" size="lg" arrow>
               Book an intro call
