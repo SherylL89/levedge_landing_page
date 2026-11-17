@@ -8,26 +8,26 @@ export default function Hero() {
       <div className="hero-copy">
         <p className="hero-pill">
           <span className="hero-dot" aria-hidden="true" />
-          Hi, I&apos;m Sheryl. I build AI engines with founders.
+          Forward-deployed AI for growth and operations
         </p>
         <h1 className="hero-title">
           Leverage AI to create an <em>edge</em>.
         </h1>
         <p className="hero-lede">Everyone has the same models. The edge is in how you use them.</p>
         <p className="hero-sub">
-          I embed with founders and growing teams to build AI-native engines for growth and
-          operations, and stay until they run.
+          We embed inside your team and your systems to build AI-native engines for growth and
+          operations, and stay until they are in production and your people use them.
         </p>
         <div className="hero-ctas">
           <Button href={bookingHref} variant="primary" size="lg" arrow>
             Book an intro call
           </Button>
           <Button href="#how" variant="outline-dark" size="lg">
-            See how it works
+            See how we work
           </Button>
         </div>
         <p className="hero-proof">
-          $10M/yr B2B sales lead · 3x retail brand growth · 20M+ impression campaigns
+          Audit in 2 weeks · Built in your stack · Your data stays yours
         </p>
       </div>
       <div className="hero-visual">

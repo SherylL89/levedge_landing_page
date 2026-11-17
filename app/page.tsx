@@ -5,7 +5,7 @@ import LogoBar from "@/components/LogoBar";
 import Nav from "@/components/Nav";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionTag from "@/components/SectionTag";
-import { BOOKING_URL, CASE_STUDIES, FOUNDER_PHOTO, bookingHref, marketingHref } from "@/lib/site";
+import { BOOKING_URL, CASE_STUDIES, bookingHref, marketingHref } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 
 const PAINS = [
@@ -17,11 +17,11 @@ const PAINS = [
   {
     who: "Growing teams",
     line: "Your team has AI licenses. Not AI results.",
-    body: "Everyone has access to the tools. Almost nobody has changed how the work actually gets done.",
+    body: "Pilots that never reach production. No one owns the outcome. Tools that work in a demo and that nobody uses on Monday.",
   },
 ];
 
-// Founder's personal track record (before Levedge), not Levedge client results.
+// Our founder's track record before Levedge, not Levedge client results.
 const STATS = [
   { n: "$10M", caption: "per year in B2B revenue, as lead sales", signal: true },
   { n: "50+", caption: "B2B deals personally led", signal: false },
@@ -69,39 +69,124 @@ const STEPS = [
     n: "01",
     title: "Audit",
     when: "2 weeks",
-    body: "Diagnose your ICP, pitch, pipeline and workflows. Rank what AI can actually move.",
-    output: "90-day plan",
+    body: "We map how the work really gets done before proposing any AI.",
+    points: [
+      "Where your data lives and how it flows",
+      "Who owns each workflow today",
+      "Opportunities scored on data readiness, impact, feasibility and adoption",
+    ],
+    output: "A ranked 90-day plan",
   },
   {
     n: "02",
     title: "Build",
     when: "Weeks 2–8",
-    body: "Build the engine inside your stack: process, CRM, agents and dashboards.",
-    output: "A running system",
+    body: "We build inside your stack, for production from day one, starting with one quick win.",
+    points: [
+      "Automation first, agents only where they earn it",
+      "Verification steps and clear permission boundaries",
+      "A person in the loop wherever judgment matters",
+    ],
+    output: "A system running in your tools",
   },
   {
     n: "03",
     title: "Activate",
     when: "Ongoing",
-    body: "Redesign who does what between people and agents, train your team, and coach until it sticks.",
-    output: "Team adoption",
+    body: "A system nobody uses is a failed project, so adoption is part of the build.",
+    points: [
+      "Designed around how your people actually work",
+      "Piloted with one small team, then rolled out",
+      "Training and a written handover so you can run it without us",
+    ],
+    output: "A team that uses it",
   },
   {
     n: "04",
     title: "Measure",
     when: "Weekly",
-    body: "Track the number we agreed on. Scale what moves it. Cut what doesn't.",
-    output: "Live dashboard",
+    body: "Every engagement is tied to one number we agree on up front.",
+    points: [
+      "A live dashboard, reviewed weekly",
+      "Scale what moves the number",
+      "Cut what doesn't",
+    ],
+    output: "A result you can point to",
   },
+];
+
+const BUILDS = [
+  {
+    name: "Workflow automation",
+    line: "operations",
+    body: "The work your team repeats every week: pulling data from five systems, re-keying it, checking it. Contracts, invoices and emails go in; clean records come out.",
+  },
+  {
+    name: "Lead generation",
+    line: "growth",
+    body: "Account research, enrichment, scoring and first-draft outreach, so your sellers spend their hours on conversations.",
+  },
+  {
+    name: "Content engines",
+    line: "growth",
+    body: "One long recording becomes a month of clips, carousels and posts, in your voice and on a schedule.",
+  },
+  {
+    name: "Support triage",
+    line: "operations",
+    body: "AI answers the common questions and drafts the rest. Your people handle the edge cases, with a clean hand-off.",
+  },
+  {
+    name: "Inbox and scheduling",
+    line: "operations",
+    body: "A sorted inbox, booked meetings and drafted follow-ups waiting for your leadership team each morning.",
+  },
+];
+
+// ILLUSTRATIVE examples of typical engagements, not client results.
+// TODO(Sheryl): replace with real case studies in CASE_STUDIES (lib/site.ts).
+const EXAMPLES = [
+  {
+    client: "Telehealth provider",
+    asked: "“A fully autonomous AI front desk.”",
+    built: "A workflow that reads each intake form and routes the patient to the right clinician.",
+    why: "The steps were clear and mistakes were costly, so a predictable automation beat an agent.",
+  },
+  {
+    client: "B2B manufacturer",
+    asked: "“An AI sales agent.”",
+    built: "An assistant that turns inquiries, custom specs and sample requests into quotes and follow-ups, logged straight to the CRM.",
+    why: "Sellers keep the relationship. The system takes the paperwork.",
+  },
+  {
+    client: "B2B services firm",
+    asked: "“More outbound, same headcount.”",
+    built: "A research tool that takes a target list, profiles each company and stakeholder, and drafts a tailored first email for a seller to review and send.",
+    why: "AI does the research and the first draft. People decide what goes out.",
+  },
+  {
+    client: "Fintech operations team",
+    asked: "“A fully agentic finance copilot.”",
+    built: "A script that reconciles payment discrepancies before they reach the dispute queue.",
+    why: "One model call and plain code: easy to audit, easy to explain to compliance.",
+  },
+];
+
+const AGENT_CHECK = [
+  { q: "Can you draw the process as clear steps?", a: "Then it's an automation." },
+  { q: "More than five branches, with inputs you can't predict?", a: "It might need an agent." },
+  { q: "Is a mistake expensive?", a: "Automation." },
+  { q: "Will compliance get involved?", a: "Automation, no question." },
 ];
 
 const COMPARE = {
   cols: ["Agency", "Big consultancy", "Levedge"],
   rows: [
-    { label: "Who does the work", cells: ["A junior account team", "Analysts, with a partner on top", "A senior operator, hands-on"] },
+    { label: "Who does the work", cells: ["A junior account team", "Analysts, with a partner on top", "A senior team, embedded with yours"] },
     { label: "What you get", cells: ["Campaigns and reports", "A strategy deck and roadmap", "A running system in your stack"] },
     { label: "How AI shows up", cells: ["Bolt-on tools", "Slides about AI", "Agents built into your workflows"] },
     { label: "Time to first result", cells: ["Months", "Quarters", "Weeks"] },
+    { label: "When they leave", cells: ["You depend on them", "A roadmap you still have to build", "Your team runs it, with a handover"] },
     { label: "Built for", cells: ["Brands with big budgets", "Large enterprises", "Founders and growing teams"] },
   ],
 };
@@ -122,10 +207,10 @@ const OFFERS = [
     featured: true,
   },
   {
-    name: "Founder Sales Advisory",
-    price: "$200",
-    unit: "per hour",
-    body: "Pitch reviews, negotiation prep and live deal strategy, one-on-one.",
+    name: "Growing teams",
+    price: "Scoped",
+    unit: "after an intro call",
+    body: "An embedded engagement for teams making go-to-market or operations AI-native, priced to the scope.",
     featured: false,
   },
 ];
@@ -139,7 +224,7 @@ const FAQ = [
   },
   {
     q: "Do I need a technical team?",
-    a: "No. We build, connect and maintain everything ourselves, and train whoever on your side will own it day to day. If you do have engineers, we work alongside them.",
+    a: "No. We build and connect everything, and train whoever on your side will own it day to day. If you do have engineers, we work alongside them.",
   },
   {
     q: "What tools do you use?",
@@ -162,8 +247,16 @@ const FAQ = [
     a: "No. We work with B2B companies and with consumer brands selling into retail, wholesale or partnerships. For brand, creator and IP campaigns, see Levedge Marketing.",
   },
   {
-    q: "Who will I actually work with?",
-    a: "Sheryl, directly. No hand-off to a junior team.",
+    q: "Do we need an AI agent?",
+    a: "Often not. Most requests for an agent are better served by a simpler, predictable automation that is easier to trust and maintain. We recommend an agent only when the process truly has unpredictable inputs and many branches.",
+  },
+  {
+    q: "What happens when the engagement ends?",
+    a: "You keep running it. Handover is part of every engagement: documentation, training for the people who own the system, and a clear view of how to maintain it without us.",
+  },
+  {
+    q: "Who will we work with?",
+    a: "One accountable lead from audit to handover, working inside your tools and channels alongside your team. No hand-off to a junior account team.",
   },
 ];
 
@@ -181,7 +274,8 @@ export default function Home() {
           <h2>The model isn&apos;t the moat.</h2>
           <p>
             Your data, your customers and your team are. Everyone can buy the same AI. The
-            companies pulling ahead are the ones that build it into how they sell and operate.
+            companies pulling ahead are the ones that get it into production and into how
+            their people work.
           </p>
         </div>
         <div className="problem-grid">
@@ -195,47 +289,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Track record */}
-      <section className="numbers reveal" id="track-record">
-        <SectionTag name="Founder track record" />
-        <div className="numbers-grid">
-          {STATS.map((s) => (
-            <div key={s.caption} className="stat">
-              <div className={`stat-n${s.signal ? " stat-n--signal" : ""}`}>{s.n}</div>
-              <div className="stat-caption">{s.caption}</div>
-            </div>
-          ))}
-        </div>
-        <p className="numbers-note">
-          Results from Sheryl&apos;s work before founding Levedge, across B2B sales consulting,
-          consumer brand strategy and entertainment marketing.
-        </p>
-      </section>
-
-      {/* Who we help */}
-      <section className="who reveal" id="who">
-        <SectionTag name="Who we help" />
-        <div className="who-grid">
-          {AUDIENCES.map((a) => (
-            <div key={a.tag} className="who-card">
-              <div className="who-tag">{a.tag}</div>
-              <h3>{a.title}</h3>
-              <div className="who-engines">
-                {a.engines.map((e) => (
-                  <div key={e.name} className={`engine engine--${e.line}`}>
-                    <div className="engine-head">
-                      <span className="engine-name">{e.name}</span>
-                      <span className="engine-chip">{e.line} engine</span>
-                    </div>
-                    <p>{e.body}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* How we work */}
       <section className="how reveal" id="how">
         <SectionTag name="How we work" />
@@ -244,8 +297,9 @@ export default function Home() {
             Four moves. <em>One engine.</em>
           </h2>
           <p>
-            We don&apos;t hand you a deck and leave. We embed, build the system with your team,
-            make sure people actually use it, and measure it every week. No pilot purgatory.
+            We work forward-deployed: inside your team, your tools and your data, from the
+            first audit to the day your people run it without us. No deck-and-leave, no pilot
+            purgatory.
           </p>
         </div>
         <ol className="steps">
@@ -257,10 +311,93 @@ export default function Home() {
               </div>
               <h3>{s.title}</h3>
               <p>{s.body}</p>
+              <ul>
+                {s.points.map((pt) => (
+                  <li key={pt}>{pt}</li>
+                ))}
+              </ul>
               <div className="step-output">Output: {s.output}</div>
             </li>
           ))}
         </ol>
+      </section>
+
+      {/* What you get */}
+      <section className="work reveal" id="work">
+        <SectionTag name="What you get" />
+        <div className="work-grid">
+          <div className="work-copy">
+            <h2>An engine you can watch run.</h2>
+            <p>
+              Every engagement ends with a working system and a dashboard your team checks
+              every week, not a slide deck.
+            </p>
+            <ul className="work-list">
+              <li>A working system, live in your own tools</li>
+              <li>The playbook: process, prompts and operating rules</li>
+              <li>A weekly dashboard tied to one agreed number</li>
+              <li>Training and a written handover</li>
+            </ul>
+          </div>
+          <figure className="dash" aria-label="Illustrative engine dashboard">
+            <div className="dash-head">
+              <span>Revenue engine · this week</span>
+              <span className="dash-badge">Sample</span>
+            </div>
+            <div className="dash-stats">
+              {["Accounts researched", "Replies", "Meetings"].map((l) => (
+                <div key={l}>
+                  <span>{l}</span>
+                  <b>—</b>
+                </div>
+              ))}
+            </div>
+            <div className="dash-bars">
+              <div>
+                <span>AI</span>
+                <div>
+                  <i style={{ width: "78%" }} />
+                </div>
+              </div>
+              <div>
+                <span>People</span>
+                <div>
+                  <i className="is-human" style={{ width: "22%" }} />
+                </div>
+              </div>
+            </div>
+            <figcaption>Illustrative: share of outreach hours, AI vs. people</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* What we build */}
+      <section className="build reveal" id="build">
+        <SectionTag name="What we build" />
+        <div className="approach-intro">
+          <h2>Five kinds of work that reliably pay off.</h2>
+          <p>
+            We stay away from AI theatre. These are the places where AI saves real hours or
+            creates real pipeline today, across our Growth and Operations engines.
+          </p>
+        </div>
+        <div className="build-grid">
+          {BUILDS.map((b) => (
+            <div key={b.name} className={`build-card engine--${b.line}`}>
+              <span className="engine-chip">{b.line} engine</span>
+              <h3>{b.name}</h3>
+              <p>{b.body}</p>
+            </div>
+          ))}
+          <div className="build-card build-card--note">
+            <h3>What we won&apos;t build</h3>
+            <p>
+              AI that negotiates or closes for you, and fully autonomous agents with no one
+              watching. Today, AI is a great researcher, qualifier and coordinator. People
+              still close.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Tools */}
@@ -289,15 +426,61 @@ export default function Home() {
         </ul>
       </section>
 
+      {/* Engagements: real case studies when present, otherwise labeled examples */}
+      <section className="examples reveal" id="engagements">
+        <SectionTag name={CASE_STUDIES.length ? "Selected work" : "Example engagements"} />
+        {CASE_STUDIES.length > 0 ? (
+          <div className="cases-grid">
+            {CASE_STUDIES.map((c) => (
+              <article key={c.title} className="case">
+                <div className="case-meta">
+                  {c.client} · {c.industry}
+                </div>
+                <div className="case-result">{c.result}</div>
+                <h3>{c.title}</h3>
+                <p>{c.body}</p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <>
+            <div className="approach-intro">
+              <h2>What they ask for. What actually works.</h2>
+              <p>
+                Illustrative examples of typical engagements. The request is usually an
+                agent. The answer is usually something simpler that ships.
+              </p>
+            </div>
+            <div className="examples-grid">
+              {EXAMPLES.map((e) => (
+                <article key={e.client} className="example">
+                  <div className="example-head">
+                    <span className="case-meta">{e.client}</span>
+                    <span className="example-badge">Illustrative</span>
+                  </div>
+                  <dl>
+                    <dt>They asked for</dt>
+                    <dd className="example-asked">{e.asked}</dd>
+                    <dt>We&apos;d build</dt>
+                    <dd>{e.built}</dd>
+                    <dt>Why</dt>
+                    <dd>{e.why}</dd>
+                  </dl>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+
       {/* Why Levedge */}
       <section className="why reveal" id="why">
         <SectionTag name="Why Levedge" />
         <div className="approach-intro">
           <h2>We build alongside your team, not just advise.</h2>
           <p>
-            Most firms either run your campaigns or hand you a strategy. We sit in between: a
-            senior operator who has carried a number, building AI systems that your team keeps
-            running.
+            Most firms either run your campaigns or hand you a strategy. We sit in between:
+            operators who have carried a number, building AI systems your team keeps running.
           </p>
         </div>
         <div className="compare" role="table">
@@ -327,6 +510,23 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <div className="agent-check">
+          <div>
+            <h3>Automation before agents.</h3>
+            <p>
+              Agents demo well and drift in production. Before we build one, we ask four
+              questions.
+            </p>
+          </div>
+          <ol>
+            {AGENT_CHECK.map((c) => (
+              <li key={c.q}>
+                <span>{c.q}</span>
+                <b>{c.a}</b>
+              </li>
+            ))}
+          </ol>
+        </div>
         <div className="trust">
           <span className="trust-mark" aria-hidden="true" />
           <p>
@@ -336,73 +536,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Selected work — sample deliverable until real case studies exist */}
-      <section className="work reveal" id="work">
-        <SectionTag name={CASE_STUDIES.length ? "Selected work" : "What you get"} />
-        {CASE_STUDIES.length > 0 ? (
-          <div className="cases-grid">
-            {CASE_STUDIES.map((c) => (
-              <article key={c.title} className="case">
-                <div className="case-meta">
-                  {c.client} · {c.industry}
-                </div>
-                <div className="case-result">{c.result}</div>
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="work-grid">
-            <div className="work-copy">
-              <h2>An engine you can watch run.</h2>
-              <p>
-                Every engagement ends with a working system and a dashboard your team checks
-                every week, not a slide deck.
-              </p>
-              <ul className="work-list">
-                <li>ICP, messaging and pitch playbook</li>
-                <li>Outbound and AI SDR workflows, live in your stack</li>
-                <li>A configured CRM and pipeline</li>
-                <li>A weekly dashboard and review rhythm</li>
-              </ul>
-            </div>
-            <figure className="dash" aria-label="Illustrative engine dashboard">
-              <div className="dash-head">
-                <span>Revenue engine · this week</span>
-                <span className="dash-badge">Sample</span>
-              </div>
-              <div className="dash-stats">
-                {["Accounts researched", "Replies", "Meetings"].map((l) => (
-                  <div key={l}>
-                    <span>{l}</span>
-                    <b>—</b>
+      {/* Who we help */}
+      <section className="who reveal" id="who">
+        <SectionTag name="Who we help" />
+        <div className="who-grid">
+          {AUDIENCES.map((a) => (
+            <div key={a.tag} className="who-card">
+              <div className="who-tag">{a.tag}</div>
+              <h3>{a.title}</h3>
+              <div className="who-engines">
+                {a.engines.map((e) => (
+                  <div key={e.name} className={`engine engine--${e.line}`}>
+                    <div className="engine-head">
+                      <span className="engine-name">{e.name}</span>
+                      <span className="engine-chip">{e.line} engine</span>
+                    </div>
+                    <p>{e.body}</p>
                   </div>
                 ))}
               </div>
-              <div className="dash-bars">
-                <div>
-                  <span>AI SDR</span>
-                  <div>
-                    <i style={{ width: "78%" }} />
-                  </div>
-                </div>
-                <div>
-                  <span>Founder</span>
-                  <div>
-                    <i className="is-human" style={{ width: "22%" }} />
-                  </div>
-                </div>
-              </div>
-              <figcaption>Illustrative: share of outreach hours, agents vs. people</figcaption>
-            </figure>
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Offers */}
       <section className="offers reveal" id="offers">
-        <SectionTag name="Offers · Founders" />
+        <SectionTag name="Offers" />
         <div className="offers-intro">
           <h2>Start with an audit.</h2>
           <p>
@@ -427,42 +587,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
+      {/* Who we are */}
       <section className="about reveal" id="about">
-        <SectionTag name="About" />
-        <div className="about-grid">
-          <div className="about-photo">
-            {FOUNDER_PHOTO ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={FOUNDER_PHOTO} alt="Sheryl, founder of Levedge" />
-            ) : (
-              <span className="about-initial">S</span>
-            )}
-          </div>
-          <div className="about-body">
-            <h2>Hi, I&apos;m Sheryl.</h2>
-            <p>
-              I&apos;ve spent my career on the revenue side. I was the lead on a B2B sales team
-              doing $10M a year and personally led 50+ deals. I led the brand and marketing
-              strategy that took a retail brand from $500K to $1.5M a month. And I built
-              celebrity, IP and creator campaigns that drove 20M+ impressions and moved sales.
-            </p>
-            <p>
-              I&apos;m also a hands-on product builder. I lead product on an AI-powered platform
-              and build my own agents and tools. Levedge is where those two sides meet: I help
-              founders and teams build engines that use AI to grow, and I build them with you,
-              not just advise.
-            </p>
-            <p className="about-sign">Founder, Levedge · Los Angeles</p>
-          </div>
+        <SectionTag name="Who we are" />
+        <div className="approach-intro">
+          <h2>We&apos;ve carried the numbers we help you move.</h2>
+          <p>
+            Levedge comes from the operating side of the business: carrying revenue targets,
+            scaling brands and shipping AI products. We bring that experience into your team
+            and build with it.
+          </p>
         </div>
+        <div className="numbers-grid">
+          {STATS.map((s) => (
+            <div key={s.caption} className="stat">
+              <div className={`stat-n${s.signal ? " stat-n--signal" : ""}`}>{s.n}</div>
+              <div className="stat-caption">{s.caption}</div>
+            </div>
+          ))}
+        </div>
+        <p className="numbers-note">
+          Results led by our founder, Sheryl, before Levedge, across B2B sales consulting,
+          consumer brand strategy and entertainment marketing.
+        </p>
       </section>
 
       {/* FAQ */}
       <section className="faq reveal" id="faq">
         <SectionTag name="FAQ" />
         <div className="faq-grid">
-          <h2>Questions founders ask us.</h2>
+          <h2>Questions teams ask us.</h2>
           <div className="faq-list">
             {FAQ.map((f) => (
               <details key={f.q} className="faq-item">
@@ -512,7 +666,7 @@ export default function Home() {
           </h2>
           <p>
             Book a 30-minute intro call. We&apos;ll look at where you are today and whether an
-            audit makes sense. No pitch deck required.
+            audit makes sense.
           </p>
           {BOOKING_URL ? (
             <Button href={BOOKING_URL} variant="primary" size="lg" arrow>

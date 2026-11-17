@@ -13,6 +13,9 @@ export const FOUNDER_PHOTO = "";
 // Levedge Marketing landing page is live. Until then its CTA goes to contact.
 export const MARKETING_URL = "";
 
+// TODO(Sheryl): "Founder Sales Advisory" ($200/hr, 1:1 pitch and deal coaching) was
+// removed from this page. Add it to the Levedge Marketing site when that is built.
+
 export const bookingHref = BOOKING_URL || "#contact";
 export const marketingHref = MARKETING_URL || bookingHref;
 

@@ -3,8 +3,8 @@ import Button from "./Button";
 import { bookingHref } from "@/lib/site";
 
 const NAV_ITEMS = [
-  { label: "Who we help", href: "#who" },
   { label: "How we work", href: "#how" },
+  { label: "What we build", href: "#build" },
   { label: "Why Levedge", href: "#why" },
   { label: "Offers", href: "#offers" },
   { label: "FAQ", href: "#faq" },

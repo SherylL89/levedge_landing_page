@@ -165,7 +165,8 @@ p {
   margin-bottom: 20px;
 }
 .problem,
-.numbers,
+.build,
+.examples,
 .who,
 .tools,
 .why,
@@ -419,11 +420,9 @@ h2 {
   color: #3f4439;
 }
 
-/* ---------- Track record ---------- */
-.numbers {
-  padding-top: 0;
-}
+/* ---------- Track record (inside Who we are) ---------- */
 .numbers-grid {
+  margin-top: 56px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
@@ -461,7 +460,7 @@ h2 {
 
 /* ---------- Who we help ---------- */
 .who {
-  background: var(--surface);
+  padding-top: 0;
 }
 .who-grid {
   margin-top: 0;
@@ -580,9 +579,34 @@ h2 {
   letter-spacing: -0.02em;
 }
 .step p {
-  flex: 1;
   font-size: 15px;
   color: var(--ink-soft);
+}
+.step ul {
+  flex: 1;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.step ul li {
+  position: relative;
+  padding-left: 16px;
+}
+.step ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.55;
 }
 .step-output {
   padding-top: 14px;
@@ -604,6 +628,100 @@ h2 {
 }
 .step:nth-child(4) .step-output {
   border-top-color: var(--on-lime);
+}
+
+/* ---------- What we build ---------- */
+.build-grid,
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 16px;
+  margin-top: 56px;
+}
+.build-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.build-card .engine-chip {
+  display: inline-block;
+}
+.build-card h3,
+.agent-check h3 {
+  margin: 18px 0 8px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.build-card p {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.build-card--note {
+  background: var(--dark);
+  color: var(--on-dark);
+}
+.build-card--note h3 {
+  margin-top: 0;
+  color: var(--lime);
+}
+.build-card--note p {
+  color: var(--on-dark-soft);
+}
+
+/* ---------- Example engagements ---------- */
+.examples {
+  background: var(--surface);
+}
+.example {
+  background: var(--ground);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.example-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.example-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  border: 1px dashed rgba(16, 19, 12, 0.3);
+  border-radius: var(--radius-pill);
+  padding: 3px 8px;
+}
+.example dl {
+  margin: 20px 0 0;
+}
+.example dt {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+.example dd {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.example dd.example-asked {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.examples .case {
+  background: var(--ground);
 }
 
 /* ---------- Tools ---------- */
@@ -702,6 +820,52 @@ h2 {
   background: var(--lime);
   color: var(--on-lime);
 }
+.agent-check {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 56px;
+  padding: 36px;
+  border-radius: var(--radius-lg);
+  background: var(--dark);
+  color: var(--on-dark);
+}
+.agent-check > div {
+  flex: 1 1 280px;
+}
+.agent-check h3 {
+  margin-top: 0;
+  color: var(--lime);
+}
+.agent-check p {
+  color: var(--on-dark-soft);
+}
+.agent-check ol {
+  flex: 2 1 420px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+.agent-check li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding: 12px 0;
+  border-top: 1px solid var(--dark-hairline);
+  font-size: 15px;
+  color: var(--on-dark-soft);
+}
+.agent-check li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.agent-check b {
+  font-weight: 500;
+  color: var(--on-dark);
+}
 .trust {
   margin-top: 16px;
   display: flex;
@@ -727,7 +891,7 @@ h2 {
 
 /* ---------- What you get / Selected work ---------- */
 .work {
-  padding-top: 0;
+  padding-bottom: 0;
 }
 .work-grid {
   display: flex;
@@ -1216,10 +1380,20 @@ h2 {
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  .numbers,
-  .work,
+  .build,
+  .examples {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .work {
+    padding-top: 80px;
+  }
+  .who,
   .faq {
     padding-bottom: 80px;
+  }
+  .agent-check {
+    padding: 28px;
   }
   .hero {
     padding-top: 40px;

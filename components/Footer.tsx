@@ -5,8 +5,8 @@ const COLUMNS = [
   {
     header: "Levedge",
     links: [
-      { label: "Who we help", href: "#who" },
       { label: "How we work", href: "#how" },
+      { label: "What we build", href: "#build" },
       { label: "Why Levedge", href: "#why" },
       { label: "Offers", href: "#offers" },
       { label: "FAQ", href: "#faq" },
@@ -22,7 +22,7 @@ const COLUMNS = [
   {
     header: "Company",
     links: [
-      { label: "About", href: "#about" },
+      { label: "Who we are", href: "#about" },
       { label: "Contact", href: "#contact" },
     ],
   },
