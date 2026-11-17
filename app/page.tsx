@@ -4,18 +4,24 @@ import Hero from "@/components/Hero";
 import LogoBar from "@/components/LogoBar";
 import Nav from "@/components/Nav";
 import ScrollReveal from "@/components/ScrollReveal";
+import { BottleneckArt, PilotArt } from "@/components/ProblemArt";
 import SectionTag from "@/components/SectionTag";
+import Steps from "@/components/Steps";
 import { BOOKING_URL, CASE_STUDIES, bookingHref, marketingHref } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
 
 const PAINS = [
   {
     who: "Founders",
+    tag: "The bottleneck",
+    art: "bottleneck",
     line: "Most founders have the tools, not the pipeline.",
     body: "You're still the whole sales team. Every deal depends on your calendar, and nothing runs when you stop.",
   },
   {
     who: "Growing teams",
+    tag: "Pilot purgatory",
+    art: "pilot",
     line: "Your team has AI licenses. Not AI results.",
     body: "Pilots that never reach production. No one owns the outcome. Tools that work in a demo and that nobody uses on Monday.",
   },
@@ -281,7 +287,11 @@ export default function Home() {
         <div className="problem-grid">
           {PAINS.map((p) => (
             <div key={p.who} className="problem-card">
-              <div className="problem-who">{p.who}</div>
+              <div className="problem-top">
+                <span className="problem-who">{p.who}</span>
+                <span className="problem-tag">{p.tag}</span>
+              </div>
+              {p.art === "bottleneck" ? <BottleneckArt /> : <PilotArt />}
               <h3>{p.line}</h3>
               <p>{p.body}</p>
             </div>
@@ -302,24 +312,7 @@ export default function Home() {
             purgatory.
           </p>
         </div>
-        <ol className="steps">
-          {STEPS.map((s) => (
-            <li key={s.n} className="step">
-              <div className="step-meta">
-                <span className="step-tile">{s.n}</span>
-                <span>{s.when}</span>
-              </div>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-              <ul>
-                {s.points.map((pt) => (
-                  <li key={pt}>{pt}</li>
-                ))}
-              </ul>
-              <div className="step-output">Output: {s.output}</div>
-            </li>
-          ))}
-        </ol>
+        <Steps steps={STEPS} />
       </section>
 
       {/* What you get */}
