@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Space_Grotesk({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  variable: "--font-display",
-});
-
-const ui = Inter({
+const ui = Geist({
   subsets: ["latin", "latin-ext"],
   variable: "--font-ui",
 });
 
-const mono = JetBrains_Mono({
+const mono = Geist_Mono({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
   variable: "--font-mono",
 });
 
@@ -29,7 +22,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${ui.variable} ${mono.variable}`}>
+    <html lang="en" className={`${ui.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   );

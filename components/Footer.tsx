@@ -34,7 +34,7 @@ export default function Footer() {
       <div>
         <div className="footer-brand">
           <BrandMark size={22} />
-          <span className="footer-brand-name">Levedge</span>
+          <span>Levedge</span>
         </div>
         <div className="footer-tagline">
           Leverage AI to create an edge. AI-native engines for growth and operations.

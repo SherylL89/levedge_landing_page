@@ -1,17 +1,12 @@
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
-import GrainDissolve from "@/components/GrainDissolve";
 import Hero from "@/components/Hero";
 import LogoBar from "@/components/LogoBar";
 import Nav from "@/components/Nav";
-import PixelGlyph from "@/components/PixelGlyph";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionTag from "@/components/SectionTag";
 import { BOOKING_URL, CASE_STUDIES, FOUNDER_PHOTO, bookingHref, marketingHref } from "@/lib/site";
 import { TOOLS } from "@/lib/tools";
-
-const TOTAL = "10";
-const tag = (n: number) => `${String(n).padStart(2, "0")} / ${TOTAL}`;
 
 const PAINS = [
   {
@@ -76,7 +71,6 @@ const STEPS = [
     when: "2 weeks",
     body: "Diagnose your ICP, pitch, pipeline and workflows. Rank what AI can actually move.",
     output: "90-day plan",
-    glyph: ["11100", "10100", "11100", "00010", "00001"],
   },
   {
     n: "02",
@@ -84,7 +78,6 @@ const STEPS = [
     when: "Weeks 2–8",
     body: "Build the engine inside your stack: process, CRM, agents and dashboards.",
     output: "A running system",
-    glyph: ["11011", "11011", "00000", "11011", "11011"],
   },
   {
     n: "03",
@@ -92,7 +85,6 @@ const STEPS = [
     when: "Ongoing",
     body: "Redesign who does what between people and agents, train your team, and coach until it sticks.",
     output: "Team adoption",
-    glyph: ["00100", "01110", "10101", "00100", "00100"],
   },
   {
     n: "04",
@@ -100,7 +92,6 @@ const STEPS = [
     when: "Weekly",
     body: "Track the number we agreed on. Scale what moves it. Cut what doesn't.",
     output: "Live dashboard",
-    glyph: ["00001", "00101", "10101", "10101", "10101"],
   },
 ];
 
@@ -139,7 +130,8 @@ const OFFERS = [
   },
 ];
 
-// DRAFT answers — Sheryl to review. Items in [brackets] need a decision.
+// DRAFT answers — Sheryl to review. TODO(Sheryl): add retainer terms to "What if it doesn't work?"
+// once decided (e.g. month-to-month after the first 3 months).
 const FAQ = [
   {
     q: "How fast will I see results?",
@@ -159,7 +151,7 @@ const FAQ = [
   },
   {
     q: "What if it doesn't work?",
-    a: "Every engagement starts with a number we agree on. We review it weekly, and if something isn't moving it, we change course or cut it. [Retainer terms, e.g. month-to-month after the first 3 months.]",
+    a: "Every engagement starts with a number we agree on. We review it weekly, and if something isn't moving it, we change course or cut it.",
   },
   {
     q: "How is this different from hiring a full-time salesperson?",
@@ -180,12 +172,11 @@ export default function Home() {
     <ScrollReveal>
       <Nav />
       <Hero />
-      <GrainDissolve />
       <LogoBar />
 
       {/* Problem */}
       <section className="problem reveal" id="problem">
-        <SectionTag index={tag(1)} name="The problem" />
+        <SectionTag name="The problem" />
         <div className="problem-intro">
           <h2>The model isn&apos;t the moat.</h2>
           <p>
@@ -206,7 +197,7 @@ export default function Home() {
 
       {/* Track record */}
       <section className="numbers reveal" id="track-record">
-        <SectionTag index={tag(2)} name="Founder track record" />
+        <SectionTag name="Founder track record" />
         <div className="numbers-grid">
           {STATS.map((s) => (
             <div key={s.caption} className="stat">
@@ -223,7 +214,7 @@ export default function Home() {
 
       {/* Who we help */}
       <section className="who reveal" id="who">
-        <SectionTag index={tag(3)} name="Who we help" />
+        <SectionTag name="Who we help" />
         <div className="who-grid">
           {AUDIENCES.map((a) => (
             <div key={a.tag} className="who-card">
@@ -247,41 +238,29 @@ export default function Home() {
 
       {/* How we work */}
       <section className="how reveal" id="how">
-        <SectionTag index={tag(4)} name="How we work" />
+        <SectionTag name="How we work" />
         <div className="approach-intro">
           <h2>
-            Four moves.
-            <br />
-            One engine.
+            Four moves. <em>One engine.</em>
           </h2>
           <p>
             We don&apos;t hand you a deck and leave. We embed, build the system with your team,
             make sure people actually use it, and measure it every week. No pilot purgatory.
           </p>
         </div>
-        <div className="pipeline">
-          <div className="pipeline-track" aria-hidden="true">
-            <div className="pipeline-fill" />
-          </div>
-          {STEPS.map((s, i) => (
-            <div key={s.n} className="pipe-step" style={{ ["--i" as string]: i }}>
-              <div className="pipe-node" aria-hidden="true" />
-              <div className="pipe-card">
-                <div className="pipe-meta">
-                  <span>{s.n}</span>
-                  <span>{s.when}</span>
-                </div>
-                <PixelGlyph rows={s.glyph} />
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
-                <div className="pipe-output">
-                  <span>Output</span>
-                  {s.output}
-                </div>
+        <ol className="steps">
+          {STEPS.map((s) => (
+            <li key={s.n} className="step">
+              <div className="step-meta">
+                <span className="step-tile">{s.n}</span>
+                <span>{s.when}</span>
               </div>
-            </div>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <div className="step-output">Output: {s.output}</div>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       {/* Tools */}
@@ -312,7 +291,7 @@ export default function Home() {
 
       {/* Why Levedge */}
       <section className="why reveal" id="why">
-        <SectionTag index={tag(5)} name="Why Levedge" />
+        <SectionTag name="Why Levedge" />
         <div className="approach-intro">
           <h2>We build alongside your team, not just advise.</h2>
           <p>
@@ -349,9 +328,7 @@ export default function Home() {
           ))}
         </div>
         <div className="trust">
-          <div className="trust-mark" aria-hidden="true">
-            <PixelGlyph rows={["01110", "10001", "11111", "11011", "11111"]} size={5} gap={2} />
-          </div>
+          <span className="trust-mark" aria-hidden="true" />
           <p>
             <strong>Your data stays yours.</strong> We build inside your accounts and tools.
             Nothing leaves your environment, and nothing is used to train a model.
@@ -361,7 +338,7 @@ export default function Home() {
 
       {/* Selected work — sample deliverable until real case studies exist */}
       <section className="work reveal" id="work">
-        <SectionTag index={tag(6)} name={CASE_STUDIES.length ? "Selected work" : "What you get"} />
+        <SectionTag name={CASE_STUDIES.length ? "Selected work" : "What you get"} />
         {CASE_STUDIES.length > 0 ? (
           <div className="cases-grid">
             {CASE_STUDIES.map((c) => (
@@ -378,74 +355,54 @@ export default function Home() {
         ) : (
           <div className="work-grid">
             <div className="work-copy">
-              <h2>See the audit before you buy it.</h2>
+              <h2>An engine you can watch run.</h2>
               <p>
-                Every Revenue Engine Audit ends with a document your team can act on the next
-                morning: where your pipeline leaks, who to sell to, and exactly what to build
-                in the next 90 days.
+                Every engagement ends with a working system and a dashboard your team checks
+                every week, not a slide deck.
               </p>
               <ul className="work-list">
-                <li>ICP and persona scorecard</li>
-                <li>Pipeline and channel diagnosis</li>
-                <li>Messaging and pitch teardown</li>
-                <li>Ranked AI opportunities</li>
-                <li>A 90-day build plan</li>
+                <li>ICP, messaging and pitch playbook</li>
+                <li>Outbound and AI SDR workflows, live in your stack</li>
+                <li>A configured CRM and pipeline</li>
+                <li>A weekly dashboard and review rhythm</li>
               </ul>
             </div>
-            <div className="sample" aria-label="Illustrative sample of an audit report">
-              <div className="sample-head">
-                <span>Revenue Engine Audit</span>
-                <span className="sample-badge">Sample · illustrative</span>
+            <figure className="dash" aria-label="Illustrative engine dashboard">
+              <div className="dash-head">
+                <span>Revenue engine · this week</span>
+                <span className="dash-badge">Sample</span>
               </div>
-              <div className="sample-block">
-                <div className="sample-label">Pipeline by stage</div>
-                <div className="sample-bars">
-                  {[
-                    ["Contacted", 100],
-                    ["Replied", 34],
-                    ["Meeting", 18],
-                    ["Proposal", 9],
-                    ["Won", 4],
-                  ].map(([l, v]) => (
-                    <div key={l as string} className="sample-bar">
-                      <span>{l}</span>
-                      <div>
-                        <i style={{ width: `${v}%` }} />
-                      </div>
-                    </div>
-                  ))}
+              <div className="dash-stats">
+                {["Accounts researched", "Replies", "Meetings"].map((l) => (
+                  <div key={l}>
+                    <span>{l}</span>
+                    <b>—</b>
+                  </div>
+                ))}
+              </div>
+              <div className="dash-bars">
+                <div>
+                  <span>AI SDR</span>
+                  <div>
+                    <i style={{ width: "78%" }} />
+                  </div>
                 </div>
-                <div className="sample-flag">Biggest leak: reply → meeting</div>
-              </div>
-              <div className="sample-block">
-                <div className="sample-label">90-day plan</div>
-                <div className="sample-plan">
+                <div>
+                  <span>Founder</span>
                   <div>
-                    <b>Days 1–30</b>
-                    <span>Tighten ICP</span>
-                    <span>Rewrite pitch</span>
-                    <span>CRM cleanup</span>
-                  </div>
-                  <div>
-                    <b>Days 31–60</b>
-                    <span>Launch outbound</span>
-                    <span>AI SDR live</span>
-                  </div>
-                  <div>
-                    <b>Days 61–90</b>
-                    <span>Weekly dashboard</span>
-                    <span>Hand-off playbook</span>
+                    <i className="is-human" style={{ width: "22%" }} />
                   </div>
                 </div>
               </div>
-            </div>
+              <figcaption>Illustrative: share of outreach hours, agents vs. people</figcaption>
+            </figure>
           </div>
         )}
       </section>
 
       {/* Offers */}
       <section className="offers reveal" id="offers">
-        <SectionTag index={tag(7)} name="Offers · Founders" />
+        <SectionTag name="Offers · Founders" />
         <div className="offers-intro">
           <h2>Start with an audit.</h2>
           <p>
@@ -472,7 +429,7 @@ export default function Home() {
 
       {/* About */}
       <section className="about reveal" id="about">
-        <SectionTag index={tag(8)} name="About" />
+        <SectionTag name="About" />
         <div className="about-grid">
           <div className="about-photo">
             {FOUNDER_PHOTO ? (
@@ -503,7 +460,7 @@ export default function Home() {
 
       {/* FAQ */}
       <section className="faq reveal" id="faq">
-        <SectionTag index={tag(9)} name="FAQ" />
+        <SectionTag name="FAQ" />
         <div className="faq-grid">
           <h2>Questions founders ask us.</h2>
           <div className="faq-list">
@@ -548,7 +505,7 @@ export default function Home() {
 
       {/* Contact */}
       <section className="contact" id="contact">
-        <SectionTag index={tag(10)} name="Contact" />
+        <SectionTag name="Contact" />
         <div className="contact-inner">
           <h2>
             Let&apos;s find your <em>edge</em>.

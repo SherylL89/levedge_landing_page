@@ -14,8 +14,8 @@ export default function Nav() {
   return (
     <header className="nav">
       <a href="#" className="nav-brand" aria-label="Levedge — home">
-        <BrandMark size={22} />
-        <span className="nav-brand-name">Levedge</span>
+        <BrandMark size={26} />
+        <span>Levedge</span>
       </a>
       <nav className="nav-links">
         {NAV_ITEMS.map((item) => (
@@ -24,7 +24,7 @@ export default function Nav() {
           </a>
         ))}
       </nav>
-      <Button href={bookingHref} variant="outline-dark" size="sm" arrow>
+      <Button href={bookingHref} variant="light" size="sm">
         Book a call
       </Button>
     </header>
